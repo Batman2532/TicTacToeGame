@@ -1,5 +1,6 @@
 package com.ticTacToeGame;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToeGame {
@@ -45,39 +46,30 @@ public class TicTacToeGame {
         switch (indexNumber){
             case 1:
                 board[indexNumber]= user;
-                System.out.println(board[indexNumber]);
                 break;
             case 2:
                 board[indexNumber]= user;
-                System.out.println(board[indexNumber]);
                 break;
             case 3:
                 board[indexNumber]= user;
-                System.out.println(board[indexNumber]);
                 break;
             case 4:
                 board[indexNumber]= user;
-                System.out.println(board[indexNumber]);
                 break;
             case 5:
                 board[indexNumber]= user;
-                System.out.println(board[indexNumber]);
                 break;
             case 6:
                 board[indexNumber]= user;
-                System.out.println(board[indexNumber]);
                 break;
             case 7:
                 board[indexNumber]= user;
-                System.out.println(board[indexNumber]);
                 break;
             case 8:
                 board[indexNumber]= user;
-                System.out.println(board[indexNumber]);
                 break;
             case 9:
                 board[indexNumber]= user;
-                System.out.println(board[indexNumber]);
                 break;
             default:
                 System.out.println("Enter valid number");
@@ -87,11 +79,25 @@ public class TicTacToeGame {
             System.out.println("this position is already used");
         }
     }
+    public static void tossCoin(){
+        System.out.println("Select 0 for head or 1 for tails to see who play first");
+        int heads = 0;
+        int tails = 1;
+        int userSelection = sc.nextInt();
+        Random randomNum = new Random();
+        int coinToss = randomNum.nextInt(2);
+        if (userSelection == coinToss){
+            System.out.println("user will play first");
+        }
+        else
+            System.out.println("computer will play first");
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to tic toe game");
-        createBoard(); //calling the createBoard method
-        chooseSymbol(); //calling the allowPlayer method
-        showBoard();
-        makeMove();
+//        createBoard(); //calling the createBoard method
+//        chooseSymbol(); //calling the allowPlayer method
+//        showBoard();
+//        makeMove();
+        tossCoin();
     }
 }
