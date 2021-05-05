@@ -39,36 +39,37 @@ public class TicTacToeGame {
     }
     public static void makeMove(){
         System.out.println("Enter the position between 1-9 number where you want to play" );
-        int positionNumber;
-        positionNumber = sc.nextInt();
-        if(board[positionNumber] == ' ') {
-        switch (positionNumber){
+        int indexNumber;
+        indexNumber = sc.nextInt();
+        if(board[indexNumber] == ' ') {
+        switch (indexNumber){
             case 1:
-                System.out.println(positionNumber);
+                board[indexNumber]= user;
+                System.out.println(board[indexNumber]);
                 break;
             case 2:
-                System.out.println(positionNumber);
+                System.out.println();
                 break;
             case 3:
-                System.out.println(positionNumber);
+                System.out.println();
                 break;
             case 4:
-                System.out.println(positionNumber);
+                System.out.println();
                 break;
             case 5:
-                System.out.println(positionNumber);
+                System.out.println();
                 break;
             case 6:
-                System.out.println(positionNumber);
+                System.out.println();
                 break;
             case 7:
-                System.out.println(positionNumber);
+                System.out.println();
                 break;
             case 8:
-                System.out.println(positionNumber);
+                System.out.println();
                 break;
             case 9:
-                System.out.println(positionNumber);
+                System.out.println();
                 break;
             default:
                 System.out.println("Enter valid number");
