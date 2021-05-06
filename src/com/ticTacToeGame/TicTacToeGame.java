@@ -105,11 +105,9 @@ public class TicTacToeGame {
                 board[3] == 'x' && board[5] == 'x' && board[7] == 'x'){
             if (user == 'x'){
                 System.out.println("Congrats you win the match.........");
-                System.exit(0);
             }
             else {
                 System.out.println("Computer wins the match..........");
-                System.exit(0);
             }
 
         }else if(board[1] == 'o' && board[2] == 'o' && board[3] == 'o' ||
@@ -122,17 +120,15 @@ public class TicTacToeGame {
                 board[3] == 'o' && board[5] == 'o' && board[7] == 'o'){
             if (user == 'o'){
                 System.out.println("Congrats you win the match.........");
-                System.exit(0);
             }
             else{
                 System.out.println("Computer wins the match..........");
-                System.exit(0);
-        }
+            }
         }else if(indexCount == 9){
             System.out.println("match is tie");
-            System.exit(0);
         }
     }
+
     public static void checkOpponentCanWin(){
 
         if(board[1] == user && board[2] == user){
@@ -260,18 +256,25 @@ public class TicTacToeGame {
         }
 
     }
+
     public static void main(String[] args) {
-        System.out.println("Welcome to tic toe game");
-        createBoard(); //calling the createBoard method
-        chooseSymbol(); //calling the allowPlayer method
-        showBoard();
-        tossCoin();
-        while (indexCount <9) {
-            makeMove();
+        int anotherGame = 0;
+        do {
+            System.out.println("Welcome to tic toe game");
+            createBoard(); //calling the createBoard method
+            chooseSymbol(); //calling the allowPlayer method
             showBoard();
-            winnerOrTie();
-            System.out.println("--------------------------------------------------------");
-        }
+            tossCoin();
+            while (indexCount < 9 ) {
+                makeMove();
+                showBoard();
+                winnerOrTie();
+                System.out.println("--------------------------------------------------------");
+            }
+            System.out.println("press 1 to play an another game");
+            anotherGame = sc.nextInt();
+
+        }while (anotherGame == 1);
 
     }
 }
