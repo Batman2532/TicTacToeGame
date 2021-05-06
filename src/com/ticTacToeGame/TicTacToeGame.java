@@ -56,6 +56,7 @@ public class TicTacToeGame {
                     board[indexNumberUser] = user;
                     isUserPlay = false;
                     indexCount++;
+                    availableCorner();
                 } else {
                     System.out.println("This index is already used user");
                 }
@@ -233,6 +234,20 @@ public class TicTacToeGame {
         if(played) {
             played = false;
             makeMove();
+        }
+    }
+
+    public static void availableCorner() {
+        if (indexCount >= 3) {
+            if (board[1] == ' ') {
+                System.out.println("select 1st position+++++++++++++++++++++");
+            } else if (board[3] == ' ') {
+                System.out.println("select 3rd position+++++++++++++++++++++++");
+            } else if (board[7] == ' ') {
+                System.out.println("select 7th position++++++++++++++++++++++++");
+            } else if (board[9] == ' ') {
+                System.out.println("select 9th position+++++++++++++++++++++++");
+            }
         }
     }
 
