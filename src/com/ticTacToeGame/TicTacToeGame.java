@@ -247,10 +247,17 @@ public class TicTacToeGame {
                 System.out.println("select 7th position++++++++++++++++++++++++");
             } else if (board[9] == ' ') {
                 System.out.println("select 9th position+++++++++++++++++++++++");
-            }
+            }else
+                checkCenter();
         }
     }
 
+    public static void checkCenter(){
+        if(board[5] == ' '){
+            System.out.println("select 5th/center position++++++++++++++++");
+        }
+
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to tic toe game");
         createBoard(); //calling the createBoard method
