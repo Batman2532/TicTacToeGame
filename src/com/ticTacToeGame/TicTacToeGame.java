@@ -255,6 +255,8 @@ public class TicTacToeGame {
     public static void checkCenter(){
         if(board[5] == ' '){
             System.out.println("select 5th/center position++++++++++++++++");
+        }else{
+            System.out.println("select the sides+++++++++++++");
         }
 
     }
