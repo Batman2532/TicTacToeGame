@@ -9,13 +9,15 @@ public class TicTacToeGame {
     static Scanner sc = new Scanner(System.in);
     private static char computer;
     private static char user;
-    private static boolean isUserPlay;
+    private static boolean isUserPlay,played = true;
     private static int indexNumberUser, indexCount;
+
     public static void createBoard() {
         for (int i = 1; i < 10; i++) { //storing null values in userInput using for loop
             board[i] = ' ';
         }
     }
+
     public static void chooseSymbol(){
         char choice;
         System.out.println("Enter x or o to select letter from");
@@ -31,6 +33,7 @@ public class TicTacToeGame {
             System.out.println("enter valid Symbol");
         }
     }
+
     public static void showBoard(){
         System.out.println("-------------------");
         System.out.println("| " + board[1] + "  | " + board[2] + "  | " + board[3] + "  |");
@@ -40,9 +43,9 @@ public class TicTacToeGame {
         System.out.println("| " + board[7] + "  | " + board[8] + "  | " + board[9] + "  |");
         System.out.println("-------------------");
     }
+
     public static void makeMove(){
         if (indexCount == 9){
-            System.out.println("played all turns");
             System.exit(0);
         }
         else {
@@ -54,21 +57,27 @@ public class TicTacToeGame {
                     isUserPlay = false;
                     indexCount++;
                 } else {
-                    System.out.println("This index is already used");
+                    System.out.println("This index is already used user");
                 }
             } else {
-                Random randomNum = new Random();
-                int indexNumberComputer = randomNum.nextInt(9);
-                if (board[indexNumberComputer] == ' ') {
-                    board[indexNumberComputer] = computer;
-                    isUserPlay = true;
-                    indexCount++;
-                } else {
-                    System.out.println("This index is already used");
+                if (played) {
+                    checkOpponentCanWin();
+                }else{
+                    Random randomNum = new Random();
+                    int indexNumberComputer = randomNum.nextInt(9);
+                    if (board[indexNumberComputer] == ' ') {
+                        board[indexNumberComputer] = computer;
+                        played = true;
+                        isUserPlay = true;
+                        indexCount++;
+                    } else {
+                        System.out.println("This index is already used computer");
+                    }
                 }
             }
         }
     }
+
     public static void tossCoin(){
         System.out.println("Select 0 for head or 1 for tails to see who play first");
         int userSelection = sc.nextInt();
@@ -83,6 +92,7 @@ public class TicTacToeGame {
             isUserPlay = false;
         }
     }
+
     public static void winnerOrTie(){
         if (board[1] == 'x' && board[2] == 'x' && board[3] == 'x' ||
                 board[4] == 'x' && board[5] == 'x' && board[6] == 'x' ||
@@ -120,6 +130,109 @@ public class TicTacToeGame {
         }else if(indexCount == 9){
             System.out.println("match is tie");
             System.exit(0);
+        }
+    }
+    public static void checkOpponentCanWin(){
+
+        if(board[1] == user && board[2] == user){
+            played = false;
+            board[3] = computer;
+        }
+        if (board[2] == user && board[3] == user ){
+            played = false;
+            board[1] = computer;
+        }
+        if (board[1] == user && board[3] == user){
+            played = false;
+            board[2] = computer;
+        }
+        if(board[4] == user && board[5] == user){
+            played = false;
+            board[6] = computer;
+        }
+        if (board[5] == user && board[6] == user ){
+            played = false;
+            board[4] = computer;
+        }
+        if (board[4] == user && board[6] == user){
+            played = false;
+            board[5] = computer;
+        }
+        if(board[7] == user && board[8] == user){
+            played = false;
+            board[9] = computer;
+        }
+        if (board[8] == user && board[9] == user){
+            played = false;
+            board[7] = computer;
+        }
+        if(board[7] == user && board[9] == user){
+            played = false;
+            board[8] = computer;
+        }
+        if(board[1] == user && board[4] == user){
+            played = false;
+            board[7] = computer;
+        }
+        if( board[4] == user && board[7] == user){
+            played = false;
+            board[1] = computer;
+        }
+        if(board[1] == user && board[7] == user){
+            played = false;
+            board[4] = computer;
+        }
+        if(board[2] == user && board[5] == user){
+            played = false;
+            board[8] = computer;
+        }
+        if(board[5] == user && board[8] == user){
+            played = false;
+            board[2] = computer;
+        }
+        if(board[2] == user && board[8] == user){
+            played = false;
+            board[5] = computer;
+        }
+        if(board[3] == user && board[6] == user){
+            played = false;
+            board[9] = computer;
+        }
+        if (board[6] == user && board[9] == user){
+            played = false;
+            board[3] = computer;
+        }
+        if(board[3] == user && board[9] == user){
+            played = false;
+            board[6] = computer;
+        }
+        if(board[1] == user && board[5] == user){
+            played = false;
+            board[9] = computer;
+        }
+        if(board[5] == user && board[9] == user){
+            played = false;
+            board[1] = computer;
+        }
+        if(board[1] == user && board[9] == user){
+            played = false;
+            board[5] = computer;
+        }
+        if(board[3] == user && board[5] == user){
+            played = false;
+            board[7] = computer;
+        }
+        if(board[5] == user && board[7] == user){
+            played = false;
+            board[3] = computer;
+        }
+        if(board[3] == user && board[7] == user){
+            played =  false;
+            board[5] = computer;
+        }
+        if(played) {
+            played = false;
+            makeMove();
         }
     }
 
