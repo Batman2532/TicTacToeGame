@@ -134,98 +134,122 @@ public class TicTacToeGame {
         if(board[1] == user && board[2] == user){
             played = false;
             board[3] = computer;
+            indexCount++;
         }
         if (board[2] == user && board[3] == user ){
             played = false;
             board[1] = computer;
+            indexCount++;
         }
         if (board[1] == user && board[3] == user){
             played = false;
             board[2] = computer;
+            indexCount++;
         }
         if(board[4] == user && board[5] == user){
             played = false;
             board[6] = computer;
+            indexCount++;
         }
         if (board[5] == user && board[6] == user ){
             played = false;
             board[4] = computer;
+            indexCount++;
         }
         if (board[4] == user && board[6] == user){
             played = false;
             board[5] = computer;
+            indexCount++;
         }
         if(board[7] == user && board[8] == user){
             played = false;
             board[9] = computer;
+            indexCount++;
         }
         if (board[8] == user && board[9] == user){
             played = false;
             board[7] = computer;
+            indexCount++;
         }
         if(board[7] == user && board[9] == user){
             played = false;
             board[8] = computer;
+            indexCount++;
         }
         if(board[1] == user && board[4] == user){
             played = false;
             board[7] = computer;
+            indexCount++;
         }
         if( board[4] == user && board[7] == user){
             played = false;
             board[1] = computer;
+            indexCount++;
         }
         if(board[1] == user && board[7] == user){
             played = false;
             board[4] = computer;
+            indexCount++;
         }
         if(board[2] == user && board[5] == user){
             played = false;
             board[8] = computer;
+            indexCount++;
         }
         if(board[5] == user && board[8] == user){
             played = false;
             board[2] = computer;
+            indexCount++;
         }
         if(board[2] == user && board[8] == user){
             played = false;
             board[5] = computer;
+            indexCount++;
         }
         if(board[3] == user && board[6] == user){
             played = false;
             board[9] = computer;
+            indexCount++;
         }
         if (board[6] == user && board[9] == user){
             played = false;
             board[3] = computer;
+            indexCount++;
         }
         if(board[3] == user && board[9] == user){
             played = false;
             board[6] = computer;
+            indexCount++;
         }
         if(board[1] == user && board[5] == user){
             played = false;
             board[9] = computer;
+            indexCount++;
         }
         if(board[5] == user && board[9] == user){
             played = false;
             board[1] = computer;
+            indexCount++;
         }
         if(board[1] == user && board[9] == user){
             played = false;
             board[5] = computer;
+            indexCount++;
         }
         if(board[3] == user && board[5] == user){
             played = false;
             board[7] = computer;
+            indexCount++;
         }
         if(board[5] == user && board[7] == user){
             played = false;
             board[3] = computer;
+            indexCount++;
         }
         if(board[3] == user && board[7] == user){
             played =  false;
             board[5] = computer;
+            indexCount++;
         }
         if(played) {
             played = false;
@@ -257,24 +281,31 @@ public class TicTacToeGame {
 
     }
 
-    public static void main(String[] args) {
-        int anotherGame = 0;
-        do {
-            System.out.println("Welcome to tic toe game");
-            createBoard(); //calling the createBoard method
-            chooseSymbol(); //calling the allowPlayer method
+    public static int playAnotherGame(int anotherGame) {
+        System.out.println("Welcome to tic toe game");
+        createBoard(); //calling the createBoard method
+        chooseSymbol(); //calling the allowPlayer method
+        showBoard();
+        tossCoin();
+        while (indexCount < 9) {
+            makeMove();
             showBoard();
-            tossCoin();
-            while (indexCount < 9 ) {
-                makeMove();
-                showBoard();
-                winnerOrTie();
-                System.out.println("--------------------------------------------------------");
-            }
-            System.out.println("press 1 to play an another game");
-            anotherGame = sc.nextInt();
-
-        }while (anotherGame == 1);
-
+            winnerOrTie();
+            System.out.println("--------------------------------------------------------");
+            anotherGame = 1;
+        }
+        System.out.println("press 0 to play an another game");
+        anotherGame = sc.nextInt();
+        indexCount = 0;
+        return anotherGame;
     }
+
+        public static void main (String[]args){
+            int anotherGame = 0;
+            while(anotherGame == 0) {
+                playAnotherGame(anotherGame);
+                anotherGame = playAnotherGame(anotherGame);
+            }
+
+        }
 }
